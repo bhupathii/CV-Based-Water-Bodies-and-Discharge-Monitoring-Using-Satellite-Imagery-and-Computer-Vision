@@ -1,0 +1,52 @@
+[
+  {
+    "id": "site_patna",
+    "name": "Patna Ganga Station",
+    "location": "Patna, Bihar",
+    "latitude": 25.5941,
+    "longitude": 85.1376,
+    "river": "Ganga",
+    "description": "Primary monitoring station on the Ganga river at Patna. High monsoon discharge patterns observed annually.",
+    "status": "active"
+  },
+  {
+    "id": "site_varanasi",
+    "name": "Varanasi Ghats Station",
+    "location": "Varanasi, UP",
+    "latitude": 25.3176,
+    "longitude": 82.9739,
+    "river": "Ganga",
+    "description": "Urban river monitoring at Varanasi. Critical for pollution and turbidity tracking.",
+    "status": "active"
+  },
+  {
+    "id": "site_haridwar",
+    "name": "Haridwar Har Ki Pauri",
+    "location": "Haridwar, Uttarakhand",
+    "latitude": 29.9457,
+    "longitude": 78.1642,
+    "river": "Ganga",
+    "description": "Upper Ganga monitoring point post-Himalayan snowmelt and monsoon runoff.",
+    "status": "active"
+  },
+  {
+    "id": "site_chennai_lake",
+    "name": "Chembarambakkam Lake",
+    "location": "Chennai, Tamil Nadu",
+    "latitude": 13.0012,
+    "longitude": 80.0618,
+    "river": "Lake / Reservoir",
+    "description": "Reservoir monitoring near Chennai. Key freshwater source for the city.",
+    "status": "active"
+  },
+  {
+    "id": "site_reservoir_demo",
+    "name": "Generic Reservoir Demo",
+    "location": "Deccan Plateau, India",
+    "latitude": 17.385,
+    "longitude": 78.4867,
+    "river": "Tributary Reservoir",
+    "description": "Synthetic demonstration reservoir for algorithm validation.",
+    "status": "demo"
+  }
+]

@@ -49,6 +49,8 @@ app.include_router(forecast.router, prefix="/api", tags=["Forecast"])
 app.include_router(alerts.router, prefix="/api", tags=["Alerts"])
 
 
+from fastapi.responses import FileResponse
+
 @app.on_event("startup")
 async def startup_event():
     """Initialize DB and generate sample data on first run."""
@@ -58,9 +60,36 @@ async def startup_event():
 
 @app.get("/")
 async def root():
+    frontend_dist = os.path.abspath(os.path.join(BASE_DIR, "..", "..", "frontend", "dist"))
+    index_path = os.path.join(frontend_dist, "index.html")
+    if os.path.exists(index_path):
+        return FileResponse(index_path)
     return {"message": "AquaWatch API running", "version": "1.0.0", "status": "operational"}
 
 
 @app.get("/health")
 async def health():
     return {"status": "healthy"}
+
+
+# Mount frontend static files and handle client-side routing fallback
+frontend_dist = os.path.abspath(os.path.join(BASE_DIR, "..", "..", "frontend", "dist"))
+if os.path.exists(frontend_dist):
+    # Mount assets folder
+    assets_path = os.path.join(frontend_dist, "assets")
+    if os.path.exists(assets_path):
+        app.mount("/assets", StaticFiles(directory=assets_path), name="assets")
+
+    # Catch-all to serve index.html for React Router SPA routes
+    @app.get("/{catchall:path}")
+    async def serve_frontend(catchall: str):
+        # If file exists in dist, serve it
+        file_path = os.path.join(frontend_dist, catchall)
+        if os.path.exists(file_path) and os.path.isfile(file_path):
+            return FileResponse(file_path)
+        # Otherwise fallback to index.html
+        index_path = os.path.join(frontend_dist, "index.html")
+        if os.path.exists(index_path):
+            return FileResponse(index_path)
+        return {"error": "Not Found"}
+

@@ -4,7 +4,11 @@
  */
 import axios from 'axios'
 
-const BASE = import.meta.env.VITE_API_URL || 'https://cv-based-water-bodies-and-discharge.onrender.com/api'
+let baseEnv = import.meta.env.VITE_API_URL || 'https://cv-based-water-bodies-and-discharge.onrender.com/api'
+if (baseEnv && !baseEnv.endsWith('/api') && !baseEnv.endsWith('/api/')) {
+  baseEnv = baseEnv.replace(/\/$/, '') + '/api'
+}
+const BASE = baseEnv
 
 export const api = {
   // Analysis

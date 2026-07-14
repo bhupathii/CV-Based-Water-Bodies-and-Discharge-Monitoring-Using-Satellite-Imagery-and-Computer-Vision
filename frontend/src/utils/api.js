@@ -4,7 +4,7 @@
  */
 import axios from 'axios'
 
-const BASE = '/api'
+const BASE = import.meta.env.VITE_API_URL || 'https://cv-based-water-bodies-and-discharge.onrender.com/api'
 
 export const api = {
   // Analysis

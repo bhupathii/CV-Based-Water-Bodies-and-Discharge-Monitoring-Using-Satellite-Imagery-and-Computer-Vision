@@ -86,7 +86,7 @@ export default function Dashboard() {
           <button onClick={handleRefresh} disabled={refreshing} className="btn-ghost gap-1.5" title="Refresh">
             <RefreshCw size={15} className={refreshing ? 'animate-spin' : ''} />
           </button>
-          <a href="/api/download-report" target="_blank" className="btn-secondary text-xs py-2 px-3">
+          <a href={api.downloadReport()} target="_blank" className="btn-secondary text-xs py-2 px-3">
             <Download size={14} /> Report
           </a>
         </div>

@@ -115,7 +115,7 @@ export default function UploadAnalysis() {
           </div>
 
           {/* Export */}
-          <a href="/api/download-report" target="_blank"
+          <a href={api.downloadReport()} target="_blank"
             className="btn-secondary w-full justify-center py-3 text-sm">
             <Download size={16} /> Download HTML Report
           </a>

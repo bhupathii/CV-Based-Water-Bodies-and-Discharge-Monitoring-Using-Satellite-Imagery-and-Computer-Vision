@@ -62,7 +62,7 @@ export default function ForecastAlerts() {
             className="text-sm px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-sky-500">
             {sites.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
           </select>
-          <a href="/api/download-report" target="_blank" className="btn-secondary text-xs py-2 px-3">
+          <a href={api.downloadReport()} target="_blank" className="btn-secondary text-xs py-2 px-3">
             <Download size={14} /> Report
           </a>
         </div>
